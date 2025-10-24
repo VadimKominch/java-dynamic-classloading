@@ -20,6 +20,8 @@ import java.util.Objects;
 @RequestMapping("jar")
 public class JarController {
 
+
+    private static final ThreadLocal<String> entityLibraryName = ThreadLocal.withInitial(String::new);
     private JarLibraryClassLoader loader;
 
     private JavaClassesHolder holder;

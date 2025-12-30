@@ -61,5 +61,11 @@ public class ExampleUsageRunner {
         copyArrayList(list, dst);
 
         System.out.println(dst);
+
+        var r = new ExampleRecord(1, "test", 0L);
+        System.out.println(r.getClass());
+        System.out.println(r.getClass().getDeclaredConstructors().length);
     }
 }
+
+record ExampleRecord (int id, String value1, long value2){}

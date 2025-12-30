@@ -4,8 +4,13 @@ import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ClassInfo;
 import io.github.classgraph.ScanResult;
 
+import java.io.IOException;
+import java.time.LocalDate;
+
 public class ClassInfoExample {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        var a = LocalDate.parse("2025-10-21").toEpochDay();
+        var b = LocalDate.ofEpochDay(20130);
         try (ScanResult scanResult = new ClassGraph()
                 .enableAllInfo()          // Enable full metadata scanning -> can be split to enableAnnotationInfo and enableMethodInfo
                 .acceptPackages("com.example") // Only scan your app packages
@@ -22,5 +27,6 @@ public class ClassInfoExample {
                 System.out.println("------------------------------------");
             }
         }
+        Runtime.getRuntime().exec("java Parameter.java");
     }
 }
